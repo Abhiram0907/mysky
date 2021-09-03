@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,11 +13,13 @@
 		2A9DB01926A5E4B000D40159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DB01726A5E4B000D40159 /* Main.storyboard */; };
 		2A9DB01B26A5E4B300D40159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DB01A26A5E4B300D40159 /* Assets.xcassets */; };
 		2A9DB01E26A5E4B300D40159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DB01C26A5E4B300D40159 /* LaunchScreen.storyboard */; };
-		2AD3F26326B9DE1B00A28FE8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3F26226B9DE1B00A28FE8 /* SecondViewController.swift */; };
+		2AA9F5E226E0351700A514B5 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA9F5E126E0351700A514B5 /* CurrentWeather.swift */; };
 		2AD3F26526BCFBD600A28FE8 /* OpenweatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3F26426BCFBD600A28FE8 /* OpenweatherAPI.swift */; };
+		F3584EAB2D7E91216F23E2F7 /* Pods_mysky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045AC6A61BABC8CC9E521853 /* Pods_mysky.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045AC6A61BABC8CC9E521853 /* Pods_mysky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mysky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9DB00E26A5E4B000D40159 /* mysky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mysky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9DB01126A5E4B000D40159 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A9DB01326A5E4B000D40159 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,8 +28,10 @@
 		2A9DB01A26A5E4B300D40159 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A9DB01D26A5E4B300D40159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A9DB01F26A5E4B300D40159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AD3F26226B9DE1B00A28FE8 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		2AA9F5E126E0351700A514B5 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		2AD3F26426BCFBD600A28FE8 /* OpenweatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenweatherAPI.swift; sourceTree = "<group>"; };
+		B1FEA8B91386B49BAFA96734 /* Pods-mysky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mysky.debug.xcconfig"; path = "Target Support Files/Pods-mysky/Pods-mysky.debug.xcconfig"; sourceTree = "<group>"; };
+		B4CAF06DD9A889F6875BEBE4 /* Pods-mysky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mysky.release.xcconfig"; path = "Target Support Files/Pods-mysky/Pods-mysky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3584EAB2D7E91216F23E2F7 /* Pods_mysky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				2A9DB01026A5E4B000D40159 /* mysky */,
 				2A9DB00F26A5E4B000D40159 /* Products */,
+				35DC6508FABA6FC69638EB03 /* Pods */,
+				C4CCA8DBA75BAD7E42F16709 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				2A9DB01526A5E4B000D40159 /* ViewController.swift */,
-				2AD3F26226B9DE1B00A28FE8 /* SecondViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -101,8 +107,26 @@
 			children = (
 				2A9DB01A26A5E4B300D40159 /* Assets.xcassets */,
 				2AD3F26426BCFBD600A28FE8 /* OpenweatherAPI.swift */,
+				2AA9F5E126E0351700A514B5 /* CurrentWeather.swift */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		35DC6508FABA6FC69638EB03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1FEA8B91386B49BAFA96734 /* Pods-mysky.debug.xcconfig */,
+				B4CAF06DD9A889F6875BEBE4 /* Pods-mysky.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C4CCA8DBA75BAD7E42F16709 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				045AC6A61BABC8CC9E521853 /* Pods_mysky.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A9DB02226A5E4B300D40159 /* Build configuration list for PBXNativeTarget "mysky" */;
 			buildPhases = (
+				BAE8AA3E355B9343B6C01887 /* [CP] Check Pods Manifest.lock */,
 				2A9DB00A26A5E4B000D40159 /* Sources */,
 				2A9DB00B26A5E4B000D40159 /* Frameworks */,
 				2A9DB00C26A5E4B000D40159 /* Resources */,
+				437D1323B84F34FC174801C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,15 +196,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		437D1323B84F34FC174801C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mysky/Pods-mysky-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mysky/Pods-mysky-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mysky/Pods-mysky-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAE8AA3E355B9343B6C01887 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mysky-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2A9DB00A26A5E4B000D40159 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AD3F26326B9DE1B00A28FE8 /* SecondViewController.swift in Sources */,
 				2A9DB01626A5E4B000D40159 /* ViewController.swift in Sources */,
 				2AD3F26526BCFBD600A28FE8 /* OpenweatherAPI.swift in Sources */,
 				2A9DB01226A5E4B000D40159 /* AppDelegate.swift in Sources */,
+				2AA9F5E226E0351700A514B5 /* CurrentWeather.swift in Sources */,
 				2A9DB01426A5E4B000D40159 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +391,7 @@
 		};
 		2A9DB02326A5E4B300D40159 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1FEA8B91386B49BAFA96734 /* Pods-mysky.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -341,6 +410,7 @@
 		};
 		2A9DB02426A5E4B300D40159 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4CAF06DD9A889F6875BEBE4 /* Pods-mysky.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

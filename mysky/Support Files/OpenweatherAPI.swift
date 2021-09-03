@@ -6,8 +6,10 @@
 //
 
 import Foundation
+let API_KEY = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=e943561127a35733273a7fb13debcf80"
 
-let url = URL(string: "api.openweathermap.org/data/2.5/weather?q=London&appid=e943561127a35733273a7fb13debcf80")
+typealias DownloadComplete = () -> ()
+
 
 // get lat and long
 // get humidity from core location

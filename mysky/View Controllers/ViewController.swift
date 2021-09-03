@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import CoreLocation
 
 class ViewController: UIViewController {
 
@@ -18,17 +21,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var UVindex: UILabel!
     @IBOutlet weak var LowTemp: UILabel!
     @IBOutlet weak var Humidity: UILabel!
+    @IBOutlet weak var WeatherType: UILabel!
     
 //Img outlets
     @IBOutlet weak var UVI_Icon: UIImageView!
     @IBOutlet weak var LoTemp_Icon: UIImageView!
     @IBOutlet weak var HiTemp_Icon: UIImageView!
-//    @IBOutlet weak var Day_Night_Icon: UIImageView!
     @IBOutlet weak var CurrentTemp_Icon: UIImageView!
     @IBOutlet weak var Humidity_Icon: UIImageView!
     
+    var currentWeather: CurrentWeather!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         Location.adjustsFontSizeToFitWidth = true
         CurrentTemp.textColor = UIColor.black
         HiTemp.textColor = UIColor.orange
@@ -42,23 +49,22 @@ class ViewController: UIViewController {
         CurrentTemp_Icon.image = UIImage(named: "day")
         Humidity_Icon.image = UIImage(named: "humidity")
         
-//        let hour = Calendar.current.component(.hour, from: Date())
-//
-//        switch hour {
-//            case 1...6:
-//                Day_Night_Icon.image = UIImage(named:"night")
-//            case 7...19:
-//                Day_Night_Icon.image = UIImage(named:"day")
-//            case 20...24:
-//                Day_Night_Icon.image = UIImage(named:"day")
-//
-//            default:
-//                Day_Night_Icon.image = UIImage(named:"day")
-//         }
+        
+        currentWeather = CurrentWeather()
+        Location.textColor  =  UIColor.black
+        currentWeather.downloadCurrentWeather {
+            print("Data Downloaded")
+            self.UpdateUI()
+            print(self.Location.text)
+        }
         
     }
-        
+    
+    func UpdateUI() {
+        Location.text = currentWeather.Location
+        WeatherType.text = currentWeather.WeatherType
+        Humidity.text = "\(Double(currentWeather.Humidity))"
+    }
 }
-
 
 
