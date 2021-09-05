@@ -292,7 +292,8 @@
 				7B34EA70830D857DEB47221454C25F7E /* SwiftyJSON.swift */,
 				3497E4D68415CF13B80390910421A4B2 /* Support Files */,
 			);
-			path = SwiftyJSON;
+			name = SwiftyJSON;
+			path = ../SwiftyJSON;
 			sourceTree = "<group>";
 		};
 		3497E4D68415CF13B80390910421A4B2 /* Support Files */ = {
@@ -369,7 +370,6 @@
 			children = (
 				545EB2296275185003D0954C09C95D47 /* Alamofire */,
 				C96FCAC41212C990B350E4FC63E98CAC /* NVActivityIndicatorView */,
-				31198C8AEC3BA51C088B6FEFB47461AA /* SwiftyJSON */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -377,6 +377,7 @@
 		A14835056319CC4FD2FC58D73DE47C56 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				31198C8AEC3BA51C088B6FEFB47461AA /* SwiftyJSON */,
 				E61B5A0EE7BC093C326221E774459934 /* NVActivityIndicatorAnimationAudioEqualizer.swift */,
 				180FC1AD60388C14D033D93AAE5427F6 /* NVActivityIndicatorAnimationBallBeat.swift */,
 				BB6269FB8C2CE945EAF06AB8DE614486 /* NVActivityIndicatorAnimationBallClipRotate.swift */,

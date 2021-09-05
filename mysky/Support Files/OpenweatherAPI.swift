@@ -6,7 +6,7 @@
 //
 
 import Foundation
-let API_KEY = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=e943561127a35733273a7fb13debcf80"
+let API_KEY = "https://api.openweathermap.org/data/2.5/weather?q=Dallas&appid=e943561127a35733273a7fb13debcf80"
 
 typealias DownloadComplete = () -> ()
 

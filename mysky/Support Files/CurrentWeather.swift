@@ -12,13 +12,14 @@ import SwiftyJSON
 class CurrentWeather {
     
     private var _Location: String!
-    private var _CurrentTemp: Double!
-    private var _HiTemp: Double!
-    private var _LowTemp: Double!
+    private var _CurrentTemp: Int!
+    private var _HiTemp: Int!
+    private var _LowTemp: Int!
     private var _UVIndex: Double!
     private var _Humidity: Double!
     private var _WeatherType: String!
-    private var _actualtemp: Double!
+    private var _Sunrise: Int!
+    private var _Sunset: Int!
     
     var Location: String {
         if _Location == nil {
@@ -27,23 +28,23 @@ class CurrentWeather {
         return _Location
     }
     
-    var CurrentTemp: Double {
+    var CurrentTemp: Int {
         if _CurrentTemp == nil {
-            _CurrentTemp = 0.0
+            _CurrentTemp = 0
         }
         return _CurrentTemp
     }
     
-    var HiTemp: Double {
+    var HiTemp: Int {
         if _HiTemp == nil {
-            _HiTemp = 0.0
+            _HiTemp = 0
         }
         return _HiTemp
     }
     
-    var LowTemp: Double {
+    var LowTemp: Int {
         if _LowTemp == nil {
-            _LowTemp = 0.0
+            _LowTemp = 0
         }
         return _LowTemp
     }
@@ -69,51 +70,56 @@ class CurrentWeather {
         return _WeatherType
     }
     
+    var Sunrise: Int {
+        if _Sunrise == nil {
+            _Sunrise = 0
+        }
+        return _Sunrise
+    }
+    
+    var Sunset: Int {
+        if _Sunset == nil {
+            _Sunrise = 0
+        }
+        return _Sunset
+    }
+    
     func downloadCurrentWeather(completed: @escaping DownloadComplete){
         AF.request(API_KEY).responseJSON { (response) in
             
             let jsonObject = JSON(response.data!)
-            let pretemp = jsonObject["main"]["temp"].double
-            self._actualtemp = (pretemp! - 273.15) * 9/5 + 32
             self._Location = jsonObject["name"].stringValue
             self._WeatherType = jsonObject["weather"][0]["main"].stringValue
-            let trunc_temp = Double(round(1000*self._actualtemp)/1000)
             self._Humidity = jsonObject["main"]["humidity"].doubleValue
+            self._CurrentTemp = jsonObject["main"]["temp"].int
+            self._HiTemp = jsonObject["main"]["temp_max"].int
+            self._LowTemp = jsonObject["main"]["temp_min"].int
+            self._Sunrise = jsonObject["sys"]["sunrise"].int
             
-            print(trunc_temp)
+//            print(response.value!)
+            
+            func convertDate(dateValue: Int) -> String {
+                let truncatedTime = Int(dateValue / 1000)
+                let date = Date(timeIntervalSince1970: TimeInterval(truncatedTime))
+                let formatter = DateFormatter()
+                formatter.timeZone = TimeZone(abbreviation: "UTC")
+                formatter.dateFormat = "HH:mm"
+                return formatter.string(from: date)
+            }
+            
+            print(convertDate(dateValue: self._Sunrise))
+            
+            print(self._Sunrise!)
+            print(self._CurrentTemp!)
             print(self._Location!)
             print(self._WeatherType!)
             print(self._Humidity!)
+            
             completed()
         }
     }
-    
-//    func downloadCurrentWeather(completed: @escaping DownloadComplete){
-//               AF.request(API_URL).responseData { (response) in
-//                let jsonObject = JSON(response.data!)
-//                self._cityName = jsonObject["name"].stringValue
-//                self._weatherType = jsonObject["weather"][0]["main"].stringValue
-//
-//                let tempDate=jsonObject["dt"].double
-//                let convertedUnixDate = Date(timeIntervalSince1970: tempDate!)
-//                let dateFormatter = DateFormatter()
-//                dateFormatter.dateStyle = .medium
-//                dateFormatter.timeStyle = .none
-//                let currentDate = dateFormatter.string(from: convertedUnixDate)
-//                self._date = currentDate
-//
-//                let downloadedTemp = jsonObject["main"]["temp"].double
-//                let tmp = downloadedTemp! - 273.15
-//                self._currentTemperature = Int(round(tmp))
-//
-//                print(self._cityName!)
-//                print(self._date!)
-//                print(self._currentTemperature!)
-//                print(self._weatherType!)
-//                completed()
-//
-//               }
-//            }
+
     
 }
+
 

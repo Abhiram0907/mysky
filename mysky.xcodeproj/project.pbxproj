@@ -14,6 +14,7 @@
 		2A9DB01B26A5E4B300D40159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DB01A26A5E4B300D40159 /* Assets.xcassets */; };
 		2A9DB01E26A5E4B300D40159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DB01C26A5E4B300D40159 /* LaunchScreen.storyboard */; };
 		2AA9F5E226E0351700A514B5 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA9F5E126E0351700A514B5 /* CurrentWeather.swift */; };
+		2AC5573C26E3FD9C00415D56 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC5573B26E3FD9C00415D56 /* Location.swift */; };
 		2AD3F26526BCFBD600A28FE8 /* OpenweatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3F26426BCFBD600A28FE8 /* OpenweatherAPI.swift */; };
 		F3584EAB2D7E91216F23E2F7 /* Pods_mysky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045AC6A61BABC8CC9E521853 /* Pods_mysky.framework */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		2A9DB01D26A5E4B300D40159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A9DB01F26A5E4B300D40159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA9F5E126E0351700A514B5 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		2AC5573B26E3FD9C00415D56 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2AD3F26426BCFBD600A28FE8 /* OpenweatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenweatherAPI.swift; sourceTree = "<group>"; };
 		B1FEA8B91386B49BAFA96734 /* Pods-mysky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mysky.debug.xcconfig"; path = "Target Support Files/Pods-mysky/Pods-mysky.debug.xcconfig"; sourceTree = "<group>"; };
 		B4CAF06DD9A889F6875BEBE4 /* Pods-mysky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mysky.release.xcconfig"; path = "Target Support Files/Pods-mysky/Pods-mysky.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				2A9DB01A26A5E4B300D40159 /* Assets.xcassets */,
 				2AD3F26426BCFBD600A28FE8 /* OpenweatherAPI.swift */,
 				2AA9F5E126E0351700A514B5 /* CurrentWeather.swift */,
+				2AC5573B26E3FD9C00415D56 /* Location.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				2AD3F26526BCFBD600A28FE8 /* OpenweatherAPI.swift in Sources */,
 				2A9DB01226A5E4B000D40159 /* AppDelegate.swift in Sources */,
 				2AA9F5E226E0351700A514B5 /* CurrentWeather.swift in Sources */,
+				2AC5573C26E3FD9C00415D56 /* Location.swift in Sources */,
 				2A9DB01426A5E4B000D40159 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +409,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USE_HEADERMAP = YES;
 			};
 			name = Debug;
 		};
@@ -424,6 +429,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USE_HEADERMAP = YES;
 			};
 			name = Release;
 		};
