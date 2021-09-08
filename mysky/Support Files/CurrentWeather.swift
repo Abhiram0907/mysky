@@ -15,11 +15,8 @@ class CurrentWeather {
     private var _CurrentTemp: Int!
     private var _HiTemp: Int!
     private var _LowTemp: Int!
-    private var _UVIndex: Double!
     private var _Humidity: Double!
     private var _WeatherType: String!
-    private var _Sunrise: Int!
-    private var _Sunset: Int!
     
     var Location: String {
         if _Location == nil {
@@ -49,13 +46,6 @@ class CurrentWeather {
         return _LowTemp
     }
     
-    var UVIndex: Double {
-        if _UVIndex == nil {
-            _UVIndex = 0.0
-        }
-        return _UVIndex
-    }
-    
     var Humidity: Double {
         if _Humidity == nil {
             _Humidity = 0.0
@@ -70,46 +60,19 @@ class CurrentWeather {
         return _WeatherType
     }
     
-    var Sunrise: Int {
-        if _Sunrise == nil {
-            _Sunrise = 0
-        }
-        return _Sunrise
-    }
-    
-    var Sunset: Int {
-        if _Sunset == nil {
-            _Sunrise = 0
-        }
-        return _Sunset
-    }
-    
     func downloadCurrentWeather(completed: @escaping DownloadComplete){
         AF.request(API_KEY).responseJSON { (response) in
             
             let jsonObject = JSON(response.data!)
+            
             self._Location = jsonObject["name"].stringValue
             self._WeatherType = jsonObject["weather"][0]["main"].stringValue
             self._Humidity = jsonObject["main"]["humidity"].doubleValue
             self._CurrentTemp = jsonObject["main"]["temp"].int
             self._HiTemp = jsonObject["main"]["temp_max"].int
             self._LowTemp = jsonObject["main"]["temp_min"].int
-            self._Sunrise = jsonObject["sys"]["sunrise"].int
             
-//            print(response.value!)
-            
-            func convertDate(dateValue: Int) -> String {
-                let truncatedTime = Int(dateValue / 1000)
-                let date = Date(timeIntervalSince1970: TimeInterval(truncatedTime))
-                let formatter = DateFormatter()
-                formatter.timeZone = TimeZone(abbreviation: "UTC")
-                formatter.dateFormat = "HH:mm"
-                return formatter.string(from: date)
-            }
-            
-            print(convertDate(dateValue: self._Sunrise))
-            
-            print(self._Sunrise!)
+            print(response.value!)
             print(self._CurrentTemp!)
             print(self._Location!)
             print(self._WeatherType!)
@@ -118,8 +81,30 @@ class CurrentWeather {
             completed()
         }
     }
-
     
+}
+
+class CurrentWeather2 {
+
+    private var _UVIndex: Double!
+    var UVIndex: Double {
+        if _UVIndex == nil {
+            _UVIndex = 0.0
+        }
+        return _UVIndex
+    }
+
+    func downloadCurrentWeather2(completed2: @escaping DownloadComplete2){
+        AF.request(API_KEY2).responseJSON { (response2) in
+
+            let jsonObject2 = JSON(response2.data!)
+
+            print(response2.value!)
+            self._UVIndex = jsonObject2["current"]["uvi"].doubleValue
+
+            completed2()
+        }
+    }
 }
 
 
