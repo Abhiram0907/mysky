@@ -72,12 +72,6 @@ class CurrentWeather {
             self._HiTemp = jsonObject["main"]["temp_max"].int
             self._LowTemp = jsonObject["main"]["temp_min"].int
             
-            print(response.value!)
-            print(self._CurrentTemp!)
-            print(self._Location!)
-            print(self._WeatherType!)
-            print(self._Humidity!)
-            
             completed()
         }
     }
@@ -98,8 +92,6 @@ class CurrentWeather2 {
         AF.request(API_KEY2).responseJSON { (response2) in
 
             let jsonObject2 = JSON(response2.data!)
-
-            print(response2.value!)
             self._UVIndex = jsonObject2["current"]["uvi"].doubleValue
 
             completed2()

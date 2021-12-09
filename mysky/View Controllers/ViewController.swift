@@ -43,7 +43,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             LowTemp.text = "\(Int(currentWeather.LowTemp-273)*9/5+32)°F"
         }
     }
-    let locationManager = CLLocationManager()
     
 //Img outlets
     @IBOutlet weak var UVI_Icon: UIImageView!
@@ -56,10 +55,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var currentWeather: CurrentWeather!
     var currentWeather2: CurrentWeather2!
-    
-    var currentLocation: CLLocation!
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +66,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         UVindex.textColor = UIColor(red: 1, green: 0.2824, blue: 0, alpha: 1.0)
         Humidity.textColor = UIColor(red: 0, green: 0.6627, blue: 1, alpha: 1.0)
         
+        // Image view delegates
         UVI_Icon.image = UIImage(named: "uvi")
         LoTemp_Icon.image = UIImage(named: "lotemp")
         HiTemp_Icon.image = UIImage(named: "hitemp")
@@ -78,42 +75,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         Sunrise_Icon.image = UIImage(named: "sunrise")
         Sunset_Icon.image = UIImage(named: "sunset")
         
-        callDelegate()
-        LocationSetup()
-        locationAuthentication()
-        
+        // UI Update Funcs
         currentWeather = CurrentWeather()
-        currentWeather2 = CurrentWeather2()
-        
         currentWeather.downloadCurrentWeather {
             self.UpdateUI()
         }
+      
+        currentWeather2 = CurrentWeather2()
         currentWeather2.downloadCurrentWeather2 {
             self.UpdateUI2()
         }
         
-    }
-    
-    func locationAuthentication() {
-        
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            currentLocation = locationManager.location
-            print(currentLocation.coordinate.latitude)
-            
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-            locationAuthentication()
-        }
-    }
-    
-    func LocationSetup() {
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startMonitoringSignificantLocationChanges()
-    }
-    
-    func callDelegate() {
-        locationManager.delegate = self
     }
     
     func UpdateUI() {
@@ -129,8 +101,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func UpdateUI2(){
         UVindex.text = "\(Double(currentWeather2.UVIndex))"
     }
-    
-    
+
 }
 
 //        let hour = Calendar.current.component(.hour, from: Date())
