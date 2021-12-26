@@ -17,6 +17,8 @@ class CurrentWeather {
     private var _LowTemp: Int!
     private var _Humidity: Double!
     private var _WeatherType: String!
+    private var _Sunset: Double!
+    private var _Sunrise: Double!
     
     var Location: String {
         if _Location == nil {
@@ -59,6 +61,19 @@ class CurrentWeather {
         }
         return _WeatherType
     }
+    var Sunrise: Double {
+        if _Sunrise == nil {
+            _Sunrise = 0.0
+        }
+        return _Sunrise
+    }
+    
+    var Sunset: Double {
+        if _Sunset == nil {
+            _Sunset = 0.0
+        }
+        return _Sunset
+    }
     
     func downloadCurrentWeather(completed: @escaping DownloadComplete){
         AF.request(API_KEY).responseJSON { (response) in
@@ -71,6 +86,8 @@ class CurrentWeather {
             self._CurrentTemp = jsonObject["main"]["temp"].int
             self._HiTemp = jsonObject["main"]["temp_max"].int
             self._LowTemp = jsonObject["main"]["temp_min"].int
+            self._Sunrise = jsonObject["sys"]["sunrise"].doubleValue
+            self._Sunset = jsonObject["sys"]["sunset"].doubleValue
             
             completed()
         }

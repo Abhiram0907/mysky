@@ -11,4 +11,3 @@ let API_KEY2 = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-9
 
 typealias DownloadComplete = () -> ()
 typealias DownloadComplete2 = () -> ()
-

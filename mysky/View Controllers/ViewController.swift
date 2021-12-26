@@ -70,7 +70,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         UVI_Icon.image = UIImage(named: "uvi")
         LoTemp_Icon.image = UIImage(named: "lotemp")
         HiTemp_Icon.image = UIImage(named: "hitemp")
-        CurrentTemp_Icon.image = UIImage(named: "day")
+        
+//        if (currentWeather.WeatherType == "Clouds"){
+//            CurrentTemp_Icon.image = UIImage(named: "cloudy")
+//        }else {
+//            CurrentTemp_Icon.image = UIImage(named: "day")
+//        }
         Humidity_Icon.image = UIImage(named: "humidity")
         Sunrise_Icon.image = UIImage(named: "sunrise")
         Sunset_Icon.image = UIImage(named: "sunset")
@@ -91,12 +96,44 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func UpdateUI() {
         Location.text = currentWeather.Location
         WeatherType.text = currentWeather.WeatherType
+        print(currentWeather.WeatherType)
+        if (currentWeather.WeatherType == "Clouds"){
+            CurrentTemp_Icon.image = UIImage(named: "wind")
+        }else {
+            CurrentTemp_Icon.image = UIImage(named: "day")
+        }
         Humidity.text = "\(Double(currentWeather.Humidity))"
         CurrentTemp.text = "\(Int(currentWeather.CurrentTemp - 273)*9/5+32)°F"
         HiTemp.text = "\(Int(currentWeather.HiTemp-273)*9/5+32)°F"
         LowTemp.text = "\(Int(currentWeather.LowTemp-273)*9/5+32)°F"
+//        Sunrise.text = "\(Double(currentWeather.Sunrise))"
+//        Sunrise.text = "\(NSDate(timeIntervalSince1970: currentWeather.Sunrise))"
+//        print(NSDate(timeIntervalSince1970: currentWeather.Sunrise))
+        print(currentWeather.Sunrise)
+        print(NSDate(timeIntervalSince1970: currentWeather.Sunset))
+//        Sunset.text = self.getDateFromTimeStamp(timeStamp: currentWeather.Sunset)
+//        Sunset.text = "\(NSDate(timeIntervalSince1970: currentWeather.Sunset))"
+        
         
     }
+    
+    func getDateFromTimeStamp(timeStamp : Double) -> String {
+        
+//            let date = NSDate(timeIntervalSince1970: timeStamp / 1000)
+//
+//            let dayTimePeriodFormatter = DateFormatter()
+//            dayTimePeriodFormatter.dateFormat = "HH:mm"
+//
+//            let dateString = dayTimePeriodFormatter.string(from: date as Date)
+//            return dateString
+        
+//        let date = Date(timeIntervalSince1970: unixtimeInterval)
+                let date = NSDate(timeIntervalSince1970: timeStamp)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH:mm a" //Specify your format that you want
+                let strDate = dateFormatter.string(from: date as Date)
+                return strDate
+        }
     
     func UpdateUI2(){
         UVindex.text = "\(Double(currentWeather2.UVIndex))"
@@ -105,7 +142,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 //        let hour = Calendar.current.component(.hour, from: Date())
-//
 //        switch hour {
 //            case 1...14:
 //                let gradientlayer = CAGradientLayer()
@@ -123,5 +159,3 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //                gradientlayer.colors = [UIColor.orange.cgColor, UIColor.white.cgColor]
 //                self.view.layer.insertSublayer(gradientlayer, at: 0)
 //         }
-
-
